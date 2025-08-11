@@ -141,24 +141,25 @@ export default function Products() {
               >
                 <div
                   tabIndex={0}
-                  className="group relative h-80 sm:h-[22rem] md:h-[28rem] lg:h-[30rem] w-full overflow-hidden rounded-[2rem] bg-white p-6 shadow-md ring-1 ring-black/5 transition-all duration-300 ease-out hover:shadow-xl hover:ring-primary/25 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="group relative h-72 sm:h-[20rem] md:h-[22rem] lg:h-[24rem] w-full overflow-hidden rounded-[2rem] bg-white p-6 shadow-md ring-1 ring-black/5 transition-all duration-300 ease-out hover:shadow-xl hover:ring-primary/25 focus:outline-none focus:ring-2 focus:ring-primary/30"
                 >
-                  {/* Conteúdo frontal (ícone + título + resumo) */}
-                  <div className="relative z-10 flex h-full flex-col transition-opacity duration-500 group-hover:opacity-0">
-                    <img
-                      src={image}
-                      alt={title}
-                      loading="lazy"
-                      className="mb-5 h-10 w-10 object-contain rounded-md ring-1 ring-primary/30 bg-white/60"
-                    />
-                    <h3 className="text-xl md:text-2xl mt-72 font-semibold text-gray-900 leading-tight">{title}</h3>
+                  {/* Ícone no canto superior esquerdo */}
+                  <img
+                    src={image}
+                    alt={title}
+                    loading="lazy"
+                    className="absolute top-6 left-6 h-16 w-16 md:h-20 md:w-20 object-contain rounded-md ring-1 ring-primary/30 bg-white/60"
+                  />
+                  {/* Conteúdo frontal (título abaixo do ícone) */}
+                  <div className="relative z-10 flex h-full flex-col justify-start transition-opacity duration-500 group-hover:opacity-0 pt-28 md:pt-32 pr-6">
+                    <h3 className="font-sans text-2xl md:text-3xl font-bold text-primary leading-tight text-left uppercase">{title}</h3>
                   </div>
 
                   {/* Overlay com cor primária + descrição (aparece no hover) */}
                   <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100">
                     <div className="absolute inset-0 bg-primary" />
-                    <div className="relative z-10 flex h-full -top-40 flex-col justify-end p-6">
-                      <h3 className="text-white text-xl md:text-2xl font-semibold leading-tight">{title}</h3>
+                    <div className="relative z-10 flex h-full flex-col justify-end p-6">
+                      <h3 className="text-white text-lg md:text-xl font-bold leading-tight text-left uppercase font-sans">{title}</h3>
                       <p className="mt-2 text-white/90 text-sm md:text-base leading-relaxed">{desc}</p>
                     </div>
                   </div>

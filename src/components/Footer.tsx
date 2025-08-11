@@ -46,8 +46,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 md:py-14">
         {/* Top promo panel */}
         <div className="relative overflow-hidden rounded-3xl border border-primary/50 bg-primary/70 p-8 md:p-12">
-          {/* decorative geometry */}
-          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          {/* decorative geometry (hidden on mobile) */}
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 hidden sm:block">
             <div className="absolute inset-0 rounded-3xl ring-1 ring-white/5" />
             {/* diagonal bars (refined to match reference) */}
             <div className="absolute right-6 top-6 h-28 w-3 rotate-45 bg-primary/70 rounded-full" />
