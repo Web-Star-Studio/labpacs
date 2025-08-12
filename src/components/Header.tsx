@@ -141,6 +141,25 @@ export default function Header() {
                       <a href="https://www.linkedin.com/company/labpacs?_l=pt_BR" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">LinkedIn</a>
                     </div>
                   </div>
+                  {/* Ações rápidas */}
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href="https://meuexameonline.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-cyan-500 px-5 py-2.5 text-white font-semibold uppercase tracking-wider shadow-sm hover:bg-cyan-400 transition-colors"
+                    >
+                      Acesse o Portal
+                    </a>
+                    <a
+                      href="https://meuexameonline.com.br/assets/Manual_de_Uso_do_LAUDOREMOTO-LABPACS_V1.0_assinado_assinado.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-white font-semibold uppercase tracking-wider backdrop-blur-md hover:bg-white/20 transition-colors"
+                    >
+                      Download do manual
+                    </a>
+                  </div>
                 </div>
               </div>
               {/* Botão fechar com efeito glass */}
