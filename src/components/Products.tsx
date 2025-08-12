@@ -1,7 +1,6 @@
 import { motion, useMotionValue } from "framer-motion";
 import { useRef, useState, useEffect, type FC } from "react";
 import type { MouseEvent } from "react";
-import type { PointerEvent as ReactPointerEvent } from "react";
 
 // Heroicon components
 const BeakerIcon: FC = () => (
@@ -243,38 +242,6 @@ export default function Products() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
-
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef({ active: false, startX: 0, startLeft: 0 });
-
-  const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    dragRef.current.active = true;
-    dragRef.current.startX = e.clientX;
-    dragRef.current.startLeft = el.scrollLeft;
-    el.setPointerCapture?.(e.pointerId);
-    (el.style as any).scrollSnapType = "none";
-    el.classList.add("cursor-grabbing", "select-none");
-  };
-
-  const onPointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
-    const el = scrollRef.current;
-    if (!el || !dragRef.current.active) return;
-    const x = e.clientX - dragRef.current.startX;
-    el.scrollLeft = dragRef.current.startLeft - x;
-  };
-
-  const onPointerUp = (e: ReactPointerEvent<HTMLDivElement>) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    dragRef.current.active = false;
-    el.releasePointerCapture?.(e.pointerId);
-    (el.style as any).scrollSnapType = "";
-    el.classList.remove("cursor-grabbing", "select-none");
-  };
-
-
 
   return (
     <section id="Produtos" className="relative w-full py-20 md:py-32 bg-slate-50 text-slate-800 overflow-hidden">
