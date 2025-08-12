@@ -44,9 +44,9 @@ function StatItem({ s, delay = 0 }: { s: Stat; delay?: number }) {
       className="flex flex-col items-center justify-center gap-2 text-center"
     >
       <div className="text-white font-hero font-semibold tracking-tight">
-        <span className="text-4xl sm:text-5xl md:text-6xl">{s.prefix ?? "+"}{count.toLocaleString("pt-BR")}{s.suffix ?? ""}</span>
+        <span className="text-3xl sm:text-5xl md:text-6xl">{s.prefix ?? "+"}{count.toLocaleString("pt-BR")}{s.suffix ?? ""}</span>
       </div>
-      <div className="text-white text-sm sm:text-base md:text-lg">{s.label}</div>
+      <div className="text-white text-xs sm:text-base md:text-lg">{s.label}</div>
     </motion.div>
   );
 }
@@ -70,7 +70,7 @@ export default function Statistics() {
         <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-10 flex items-center">
           <div className="grid grid-cols-1 sm:grid-cols-3 w-full divide-y sm:divide-y-0 sm:divide-x divide-white/20">
             {stats.map((s, i) => (
-              <div key={i} className="py-6 sm:py-0 sm:px-8">
+              <div key={i} className="py-1 sm:py-0 sm:px-8">
                 <StatItem s={s} delay={i * 0.05} />
               </div>
             ))}

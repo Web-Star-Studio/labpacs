@@ -15,7 +15,7 @@ export default function Hero() {
             {/* Overlay para melhorar contraste do texto */}
             <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
             {/* Conteúdo do hero sobre a imagem */}
-            <div className="relative z-10 h-full flex flex-col justify-center gap-3 px-4 sm:px-6 md:px-12 py-16">
+            <div className="relative z-10 h-full flex flex-col justify-center gap-3 px-4 sm:px-6 md:px-12 py-16 pt-48 sm:pt-16">
                 <h2 className="text-white font-hero text-3xl sm:text-5xl md:text-6xl uppercase font-semibold max-w-none md:max-w-[55%]">Exames integrados em <span>nuvem</span></h2>
                 <h2 className="text-white font-hero text-4xl sm:text-6xl md:text-7xl uppercase font-semibold max-w-none md:max-w-[80%]">de fácil acesso, simples assim!</h2>
             </div>
