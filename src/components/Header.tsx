@@ -63,7 +63,7 @@ export default function Header() {
             </button>
             <a
               href="#contato"
-              className={`px-4 py-2 text-xs md:text-sm lg:text-sm font-semibold uppercase tracking-wider border rounded-full transition-colors ${buttonColorClass}`}
+              className={`hidden md:block px-4 py-2 text-xs md:text-sm lg:text-sm font-semibold uppercase tracking-wider border rounded-full transition-colors ${buttonColorClass}`}
             >
               Fale Conosco
             </a>
