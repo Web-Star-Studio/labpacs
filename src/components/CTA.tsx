@@ -14,12 +14,32 @@ const container = {
 
 export default function CTA() {
   return (
-    <section id="CTA" className="relative w-full py-20 md:py-28">
-      {/* Background decor */}
+    <section id="CTA" className="relative w-full py-20 md:py-28 overflow-hidden">
+      {/* Background decor - aurora cyan */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-white to-white" />
-        <div className="absolute -top-24 -right-10 h-72 w-72 rounded-full bg-primary/25 blur-3xl" />
-        <div className="absolute -bottom-28 -left-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl" />
+        {/* Gradiente base leve para profundidade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-50 via-white to-white" />
+
+        {/* Blobs com blur e transparência */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 -right-10 h-[28rem] w-[28rem] rounded-full blur-3xl"
+          style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.30), transparent 70%)" }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-28 -left-10 h-[30rem] w-[30rem] rounded-full blur-3xl"
+          style={{ background: "radial-gradient(closest-side, rgba(8,145,178,0.20), transparent 70%)" }}
+        />
+
+        {/* Movimento sutil contínuo */}
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 left-1/3 h-[22rem] w-[22rem] rounded-full blur-2xl mix-blend-screen"
+          style={{ background: "radial-gradient(closest-side, rgba(59,130,246,0.18), transparent 70%)" }}
+          animate={{ y: [0, -16, 0], x: [0, 8, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       <div className="mx-auto max-w-6xl px-6 md:px-10">

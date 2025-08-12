@@ -1,63 +1,159 @@
-import { Button } from "./ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const navLinks = [
+  { href: "#Produtos", label: "Produtos" },
+  { href: "#Estatisticas", label: "Clientes" },
+  { href: "#CTA", label: "Empresa" },
+];
 
 export default function Header() {
-    const [open, setOpen] = useState(false);
-    return (
-        <header className="fixed top-0 left-0 z-50 w-full bg-white/90 backdrop-blur border-b border-slate-200/40">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
-                <img className="w-16 h-10 sm:w-20 sm:h-12" src="/logo.webp" alt="Logo" />
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-                {/* Desktop nav */}
-                <nav className="hidden md:block">
-                    <ul className="flex gap-10 font-light text-lg">
-                        <li className="hover:underline"><a href="#Produtos">Produtos</a></li>
-                        <li className="hover:underline"><a href="#Estatisticas">Clientes</a></li>
-                        <li className="hover:underline"><a href="#CTA">Empresa</a></li>
-                    </ul>
-                </nav>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
 
-                {/* Desktop CTA */}
-                <a href="#contato">
-                    <Button
-                        variant={"default"}
-                        className="hidden md:inline-flex bg-primary text-white font-bold rounded-full px-5 py-3 hover:cursor-pointer hover:bg-primary/90 text-lg"
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => setOpen((prev) => !prev);
+
+  const easeIn: [number, number, number, number] = [0.12, 0, 0.39, 0];
+  const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+  const menuVars = {
+    initial: { x: "100%" },
+    animate: { x: 0, transition: { duration: 0.4, ease: easeIn } },
+    exit: { x: "100%", transition: { duration: 0.4, ease: easeOut } },
+  };
+
+  // Variantes para animação de entrada dos itens
+  const listVars = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+    },
+  };
+
+  const itemVars = {
+    hidden: { opacity: 0, y: 12, filter: "blur(2px)" },
+    show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: easeOut } },
+  };
+
+  const buttonColorClass = scrolled || open ? 'text-slate-800 border-2 border-slate-400 hover:bg-cyan-500 hover:text-white transition-colors border-cyan-200 hover:border-cyan-500' : 'text-white border-2 border-white/80 hover:bg-white/10 transition-colors';
+
+  return (
+    <>
+      <header className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${scrolled || open ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}>
+        <div className="container mx-auto flex h-24 items-center justify-between px-4 sm:px-6">
+          <a href="#" className={`font-title  tracking-widest text-2xl font-bold ${scrolled || open ? 'text-slate-800' : 'text-white'}`}>
+            LAB<span className={scrolled || open ? 'text-cyan-600' : 'text-white'}>PACS</span>
+          </a>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleMenu}
+              className={`px-4 py-2 text-sm font-semibold uppercase tracking-wider border rounded-full transition-colors hover:cursor-pointer ${buttonColorClass}`}
+            >
+              Menu
+            </button>
+            <a
+              href="#contato"
+              className={`px-4 py-2 text-sm font-semibold uppercase tracking-wider border rounded-full transition-colors ${buttonColorClass}`}
+            >
+              Fale Conosco
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            variants={menuVars}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="fixed inset-0 z-40 text-white origin-right overflow-hidden"
+          >
+            {/* Camadas de fundo "aurora" com blur e blend modes */}
+            <motion.div
+              aria-hidden
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="pointer-events-none absolute inset-0"
+            >
+              <div className="absolute -top-24 -left-16 w-[60vmax] h-[60vmax] rounded-full blur-3xl"
+                   style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.35), transparent 70%)" }} />
+              <div className="absolute top-1/3 -right-24 w-[50vmax] h-[50vmax] rounded-full blur-3xl"
+                   style={{ background: "radial-gradient(closest-side, rgba(8,145,178,0.35), transparent 70%)" }} />
+              <motion.div
+                className="absolute bottom-0 left-1/4 w-[40vmax] h-[40vmax] rounded-full blur-2xl mix-blend-screen"
+                style={{ background: "radial-gradient(closest-side, rgba(59,130,246,0.22), transparent 70%)" }}
+                animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </motion.div>
+
+            {/* Gradiente base para profundidade */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-900 via-slate-900 to-cyan-800/80" />
+
+            <div className="relative container mx-auto flex h-full flex-col justify-center p-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="md:col-span-2">
+                  <nav className="text-left">
+                    <motion.ul
+                      variants={listVars}
+                      initial="hidden"
+                      animate="show"
                     >
-                        Fale Conosco
-                    </Button>
-                </a>
-
-                {/* Mobile menu toggle */}
-                <button
-                    aria-label="Abrir menu"
-                    className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100"
-                    onClick={() => setOpen(v => !v)}
-                >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M3 6h18M3 12h18M3 18h18" />
-                    </svg>
-                </button>
-            </div>
-
-            {/* Mobile panel */}
-            {open && (
-                <div className="md:hidden absolute inset-x-0 top-full bg-white/95 backdrop-blur border-b border-slate-200/60 shadow-sm">
-                    <nav className="px-4 py-4">
-                        <ul className="flex flex-col gap-3 text-base">
-                            <li><a className="block px-2 py-2 rounded-lg hover:bg-slate-100" href="#Produtos" onClick={() => setOpen(false)}>Produtos</a></li>
-                            <li><a className="block px-2 py-2 rounded-lg hover:bg-slate-100" href="#Estatisticas" onClick={() => setOpen(false)}>Clientes</a></li>
-                            <li><a className="block px-2 py-2 rounded-lg hover:bg-slate-100" href="#CTA" onClick={() => setOpen(false)}>Empresa</a></li>
-                        </ul>
-                        <a
-                            href="#contato"
-                            className="mt-4 block w-full text-center rounded-xl bg-primary px-5 py-3 text-white shadow-sm hover:bg-primary/90"
-                            onClick={() => setOpen(false)}
-                        >
-                            Fale Conosco
-                        </a>
-                    </nav>
+                      {navLinks.map((link) => (
+                        <motion.li key={link.label} variants={itemVars} className="mb-2">
+                          <a
+                            href={link.href}
+                            onClick={toggleMenu}
+                            className="group relative text-5xl md:text-7xl font-extrabold tracking-tighter inline-block"
+                          >
+                            <span className="bg-gradient-to-r from-cyan-300 via-white to-cyan-300 bg-clip-text text-transparent">
+                              {link.label}
+                            </span>
+                            <span className="absolute left-0 -bottom-1 h-1 w-0 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+                          </a>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  </nav>
                 </div>
-            )}
-        </header>
-    )
+                <div className="text-left flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-sm uppercase tracking-widest text-slate-400 mb-4">Contato</h3>
+                    <a href="mailto:contato@labpacs.com.br" className="text-lg text-cyan-400 hover:text-white">contato@labpacs.com.br</a>
+                  </div>
+                  <div>
+                    <h3 className="text-sm uppercase tracking-widest text-slate-400 mb-4">Redes Sociais</h3>
+                    <div className="flex gap-4">
+                      <a href="https://www.instagram.com/labpacs/#" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">Instagram</a>
+                      <a href="https://www.facebook.com/Labpacs" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">Facebook</a>
+                      <a href="https://www.linkedin.com/company/labpacs?_l=pt_BR" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">LinkedIn</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Botão fechar com efeito glass */}
+              <button
+                onClick={toggleMenu}
+                className="absolute top-6 right-6 px-4 py-2 text-sm font-semibold uppercase tracking-wider rounded-full border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur-md transition-colors"
+              >
+                Fechar
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }
