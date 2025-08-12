@@ -57,13 +57,13 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleMenu}
-              className={`px-4 py-2 text-sm font-semibold uppercase tracking-wider border rounded-full transition-colors hover:cursor-pointer ${buttonColorClass}`}
+              className={`px-4 py-2 text-xs md:text-sm lg:text-sm font-semibold uppercase tracking-wider border rounded-full transition-colors hover:cursor-pointer ${buttonColorClass}`}
             >
               Menu
             </button>
             <a
               href="#contato"
-              className={`px-4 py-2 text-sm font-semibold uppercase tracking-wider border rounded-full transition-colors ${buttonColorClass}`}
+              className={`px-4 py-2 text-xs md:text-sm lg:text-sm font-semibold uppercase tracking-wider border rounded-full transition-colors ${buttonColorClass}`}
             >
               Fale Conosco
             </a>

@@ -131,16 +131,16 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-6 text-sm text-white md:flex-row md:items-center">
           <div className="flex items-center gap-4">
-            <a aria-label="LinkedIn" href="#" className="rounded-lg p-2 text-white hover:text-white">
+            <a aria-label="LinkedIn" href="#" className="rounded-full p-3 md:p-2 text-white hover:text-white">
               <IconLinkedIn className="h-5 w-5" />
             </a>
-            <a aria-label="Instagram" href="#" className="rounded-lg p-2 text-white hover:text-white">
+            <a aria-label="Instagram" href="#" className="rounded-full p-3 md:p-2 text-white hover:text-white">
               <IconInstagram className="h-5 w-5" />
             </a>
-            <a aria-label="YouTube" href="#" className="rounded-lg p-2 text-white hover:text-white">
+            <a aria-label="YouTube" href="#" className="rounded-full p-3 md:p-2 text-white hover:text-white">
               <IconYouTube className="h-5 w-5" />
             </a>
-            <a aria-label="X" href="#" className="rounded-lg p-2 text-white hover:text-white">
+            <a aria-label="X" href="#" className="rounded-full p-3 md:p-2 text-white hover:text-white">
               <IconX className="h-5 w-5" />
             </a>
           </div>

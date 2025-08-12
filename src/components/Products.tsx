@@ -94,11 +94,7 @@ const ProductCard = ({ item, idx, hoveredCard, setHoveredCard }: ProductCardProp
       }}
       onMouseMove={handleMouseMove}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={`
-        relative group cursor-pointer h-full
-        ${idx === 0 || idx === 4 ? 'lg:col-span-2' : ''}
-        ${idx === 8 ? 'md:col-span-2 lg:col-span-1' : ''}
-      `}
+      className={`relative group cursor-pointer h-full`}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-50 rounded-3xl group-hover:from-slate-200 transition-colors duration-300" />
       <motion.div
@@ -158,81 +154,79 @@ export default function Products() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Enhanced product data with gradient colors
+  // Produtos conforme solicitado
   const items: ProductItem[] = [
     {
-      title: "Visualizador de Imagens DICOM",
-      desc: "Visualize, manipule e analise imagens médicas com nossa ferramenta poderosa e intuitiva, compatível com todos os padrões DICOM.",
+      title: "Sistema PACS",
+      desc: "Banco de dados em DICOM que armazena os exames, proporcionando segurança e velocidade para localizar os pacientes e as suas imagens.",
+      image: ServerStackIcon,
+      gradient: "from-cyan-500 to-cyan-400",
+      accent: "#06b6d4",
+      tags: ["DICOM", "Armazenamento", "Segurança"],
+    },
+    {
+      title: "Work List - Segurança no fluxo da imagem",
+      desc: "Solução que integra os dados do paciente nos equipamentos de imagem de forma automatica. Gerando mais segurança e volocidade ao fluxo dos exames por imagem.",
+      image: ShieldCheckIcon,
+      gradient: "from-emerald-500 to-emerald-400",
+      accent: "#10b981",
+      tags: ["Worklist", "Integração", "Segurança"],
+    },
+    {
+      title: "Robô de integração para sistemas legados",
+      desc: "Utilizando um modelo ágil em computação, efetuamos a integração do sistema gestor da CLINICA/HOSPITAL com as soluções de imagem da LABPACS.",
+      image: ArrowTrendingUpIcon,
+      gradient: "from-indigo-500 to-indigo-400",
+      accent: "#6366f1",
+      tags: ["Integração", "Automação", "Legados"],
+    },
+    {
+      title: "Impressão sob demanda",
+      desc: "Solução para imprimir os exames por imagem no momento da entrega ao paciente, evitando acúmulos e gastos.",
+      image: ServerStackIcon,
+      gradient: "from-amber-500 to-amber-400",
+      accent: "#f59e0b",
+      tags: ["Impressão", "Sob Demanda"],
+    },
+    {
+      title: "Laudo Remoto Plataforma em nuvem",
+      desc: "Solução que integra clínicas, médicos e pacientes, facilitando o acesso a exames de imagem e laudos pela internet.",
+      image: CloudArrowUpIcon,
+      gradient: "from-sky-500 to-sky-400",
+      accent: "#0ea5e9",
+      tags: ["Laudo Remoto", "Nuvem", "Acesso"],
+    },
+    {
+      title: "Servidor de impressão DICOM",
+      desc: "Solução que permite a impressão de exames em papel, gerando economia, praticidade, com muita qualidade.",
+      image: ServerStackIcon,
+      gradient: "from-teal-500 to-teal-400",
+      accent: "#14b8a6",
+      tags: ["DICOM", "Impressão"],
+    },
+    {
+      title: "Visualização de exames",
+      desc: "Visualizador DICOM, que permite abrir o exame local ou web, otimizando o processo, gerando velocidade, economia, e mais segurança para a CLINICA/HOSPITAL, médicos e pacientes.",
       image: BeakerIcon,
       gradient: "from-primary to-primary/70",
-      accent: "#007BFF",
-      tags: ["DICOM", "Visualização", "Análise"],
+      accent: "#06b6d4",
+      tags: ["DICOM", "Visualização"],
     },
     {
-      title: "Armazenamento em Nuvem (PACS)",
-      subtitle: "Segurança e Acessibilidade",
-      desc: "Guarde seus exames em um ambiente seguro e totalmente em conformidade com a LGPD, acessível de qualquer lugar.",
-      image: CloudArrowUpIcon,
-      gradient: "from-emerald-500 to-emerald-400",
-      accent: "#28a745",
-      tags: ["Nuvem", "Segurança", "LGPD"],
-    },
-    {
-      title: "Portal de Resultados Online",
-      desc: "Disponibilize os resultados dos exames para médicos e pacientes de forma rápida, segura e com a identidade visual da sua clínica.",
-      image: ServerStackIcon,
-      gradient: "from-purple-500 to-purple-400",
-      accent: "#6f42c1",
-      tags: ["Portal Online", "Resultados", "Marca Branca"],
-    },
-    {
-      title: "Laudos a Distância (Telerradiologia)",
-      desc: "Conecte-se a uma rede de especialistas para laudar seus exames, otimizando o tempo e a qualidade do diagnóstico.",
-      image: ArrowTrendingUpIcon,
-      gradient: "from-sky-500 to-sky-400",
-      accent: "#0dcaf0",
-      tags: ["Telerradiologia", "Laudos", "Especialistas"],
-    },
-    {
-      title: "Inteligência Artificial para Diagnóstico",
-      subtitle: "Análise Preditiva",
-      desc: "Utilize algoritmos de IA para auxiliar no diagnóstico, identificando padrões e anomalias com alta precisão e agilidade.",
-      image: CpuChipIcon,
+      title: "Gravação de exames em CD/DVD",
+      desc: "Solução que permite o envio dos exames para uma gravadora num computador windows.",
+      image: ChartBarIcon,
       gradient: "from-rose-500 to-rose-400",
-      accent: "#dc3545",
-      tags: ["IA", "Diagnóstico", "Precisão"],
+      accent: "#f43f5e",
+      tags: ["CD/DVD", "Mídia"],
     },
     {
-      title: "Gestão de Clínicas e Hospitais",
-      desc: "Sistema completo para gestão de agendamentos, faturamento, prontuários eletrônicos e mais, tudo integrado em uma única plataforma.",
-      image: ChartBarIcon,
-      gradient: "from-amber-500 to-amber-400",
-      accent: "#ffc107",
-      tags: ["Gestão", "ERP", "Integração"],
-    },
-    {
-      title: "Compartilhamento Avançado",
-      desc: "Compartilhe exames e laudos de forma segura com outros médicos ou instituições, utilizando links temporários e senhas.",
-      image: ShieldCheckIcon,
-      gradient: "from-indigo-500 to-indigo-400",
-      accent: "#6610f2",
-      tags: ["Compartilhamento", "Segurança", "Colaboração"],
-    },
-    {
-      title: "Assinatura Digital e Validade Jurídica",
-      desc: "Garanta a autenticidade e validade jurídica dos laudos com assinatura digital padrão ICP-Brasil.",
-      image: ShieldCheckIcon,
-      gradient: "from-teal-500 to-teal-400",
-      accent: "#20c997",
-      tags: ["Assinatura Digital", "ICP-Brasil", "Validade Jurídica"],
-    },
-    {
-      title: "Relatórios e Dashboards",
-      desc: "Monitore o desempenho da sua clínica com relatórios detalhados e dashboards intuitivos sobre produtividade, faturamento e mais.",
-      image: ChartBarIcon,
-      gradient: "from-orange-500 to-orange-400",
-      accent: "#fd7e14",
-      tags: ["Analytics", "Dashboards", "BI"],
+      title: "Estação de trabalho DICOM",
+      desc: "Solução que simula uma WORK-STATION, tendo as seguintes funcionalidade: MINI-PACS, Gravação CD-DVD, Visualizador de Exames, Impressão em Pepel Películas!",
+      image: CpuChipIcon,
+      gradient: "from-purple-500 to-purple-400",
+      accent: "#8b5cf6",
+      tags: ["Workstation", "MINI-PACS", "Visualizador"],
     },
   ];
 
@@ -319,33 +313,7 @@ export default function Products() {
           ))}
         </div>
 
-        {/* Minimalist Mobile Scroll */}
-        <div className="mt-16 lg:hidden">
-          <div
-            ref={scrollRef}
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={onPointerUp}
-            onPointerCancel={onPointerUp}
-            onPointerLeave={onPointerUp}
-            className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 cursor-grab"
-          >
-            {items.map((item, idx) => (
-              <motion.div
-                key={`mobile-${idx}`}
-                className="flex-none w-[85%] snap-center"
-              >
-                <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-slate-200/80 h-full">
-                  <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-lg`}>
-                    <item.image />
-                  </div>
-                  <h4 className="text-lg font-semibold text-slate-800 mb-2">{item.title}</h4>
-                  <p className="text-sm text-slate-600">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );

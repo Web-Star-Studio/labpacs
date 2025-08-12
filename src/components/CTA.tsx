@@ -54,7 +54,7 @@ export default function CTA() {
           <div className="flex flex-col gap-6 md:gap-7">
             <motion.span
               variants={fadeUp}
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200/60 bg-white/80 px-3 py-1.5 text-sm text-primary shadow-sm backdrop-blur"
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200/60 bg-white/80 px-3 py-1.5 text-xs md:text-sm text-primary shadow-sm backdrop-blur"
             >
               • Soluções em nuvem para diagnóstico por imagem
             </motion.span>
