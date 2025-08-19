@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ContactDialog from "./ContactDialog";
 
 const navLinks = [
   { href: "#Produtos", label: "Produtos" },
@@ -11,6 +12,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const [trialOpen, setTrialOpen] = useState(false);
+ 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -51,8 +54,8 @@ export default function Header() {
     <>
       <header className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${scrolled || open ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}>
         <div className="container mx-auto flex h-24 items-center justify-between px-4 sm:px-6">
-          <a href="#" className={`font-title  tracking-widest text-2xl font-bold ${scrolled || open ? 'text-slate-800' : 'text-white'}`}>
-            LAB<span className={scrolled || open ? 'text-cyan-600' : 'text-white'}>PACS</span>
+          <a href="#" className="block">
+            <img src="/logo.webp" alt="LABPACS" className="h-8 sm:h-9 lg:h-14 w-auto" />
           </a>
           <div className="flex items-center gap-2">
             <button
@@ -67,6 +70,12 @@ export default function Header() {
             >
               Fale Conosco
             </a>
+            <button
+              onClick={() => setTrialOpen(true)}
+              className="hidden md:block px-4 py-2 text-xs md:text-sm lg:text-sm font-semibold uppercase tracking-wider rounded-full bg-cyan-500 text-white border-2 border-cyan-400 hover:bg-cyan-400 transition-colors"
+            >
+              30 dias grátis
+            </button>
           </div>
         </div>
       </header>
@@ -136,9 +145,8 @@ export default function Header() {
                   <div>
                     <h3 className="text-sm uppercase tracking-widest text-slate-400 mb-4">Redes Sociais</h3>
                     <div className="flex gap-4">
-                      <a href="https://www.instagram.com/labpacs/#" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">Instagram</a>
+                      <a href="https://www.instagram.com/labpacs/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">Instagram @labpacs</a>
                       <a href="https://www.facebook.com/Labpacs" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">Facebook</a>
-                      <a href="https://www.linkedin.com/company/labpacs?_l=pt_BR" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">LinkedIn</a>
                     </div>
                   </div>
                   {/* Ações rápidas */}
@@ -173,6 +181,8 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <ContactDialog open={trialOpen} onClose={() => setTrialOpen(false)} title="30 dias grátis" />
     </>
   );
 }

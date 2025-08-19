@@ -1,4 +1,8 @@
+import { useState } from "react";
+import ContactDialog from "./ContactDialog";
+
 export default function Hero() {
+  const [trialOpen, setTrialOpen] = useState(false);
   return (
     <section className="relative w-full min-h-[100svh] md:min-h-screen bg-slate-900 text-white">
       {/* Background Image */}
@@ -31,9 +35,15 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto flex justify-between items-center bg-black/50 border border-white/20 backdrop-blur-sm p-4">
           <div className="flex items-center gap-4">
             <a href="#contato" className="text-sm font-semibold uppercase tracking-wider hover:text-cyan-400 transition-colors">Fale Conosco</a>
+            <button
+              onClick={() => setTrialOpen(true)}
+              className="text-xs sm:text-sm font-semibold uppercase tracking-wider rounded-full bg-cyan-500 text-white px-3 py-1.5 hover:bg-cyan-400 transition-colors"
+            >
+              30 dias grátis
+            </button>
           </div>
           <div className="hidden sm:flex items-center gap-6 text-sm uppercase tracking-wider">
-            <a href="https://www.instagram.com/labpacs/#" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">Instagram</a>
+            <a href="https://www.instagram.com/labpacs/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">Instagram @labpacs</a>
             <a href="https://www.facebook.com/Labpacs" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">Facebook</a>
           </div>
           <a href="#Produtos" className="text-sm font-semibold uppercase tracking-wider text-cyan-400 hover:text-white transition-colors">
@@ -41,6 +51,8 @@ export default function Hero() {
           </a>
         </div>
       </div>
+
+      <ContactDialog open={trialOpen} onClose={() => setTrialOpen(false)} title="30 dias grátis" />
     </section>
   );
 }

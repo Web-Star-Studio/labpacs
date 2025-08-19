@@ -1,16 +1,5 @@
 import type { SVGProps } from "react";
 
-function IconLinkedIn(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props}>
-      <path d="M6.94 9.75v7.31" />
-      <path d="M6.94 6.94v.01" strokeLinecap="round" />
-      <path d="M11.62 17.06v-4.44a2.31 2.31 0 0 1 4.62 0v4.44" />
-      <path d="M11.62 14.25h4.62" />
-    </svg>
-  );
-}
-
 function IconInstagram(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props}>
@@ -21,19 +10,10 @@ function IconInstagram(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function IconYouTube(props: SVGProps<SVGSVGElement>) {
+function IconFacebook(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props}>
-      <rect x="2.5" y="6.5" width="19" height="11" rx="3" />
-      <path d="M11 10.5v3l3-1.5-3-1.5Z" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function IconX(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props}>
-      <path d="M4.5 4.5 19.5 19.5M19.5 4.5 4.5 19.5" />
+      <path d="M15 8h-2a2 2 0 0 0-2 2v2H9v3h2v5h3v-5h2.1l.4-3H14v-1.5a.5.5 0 0 1 .5-.5H17V8h-2Z" />
     </svg>
   );
 }
@@ -128,20 +108,27 @@ export default function Footer() {
           </nav>
         </div>
 
+        {/* ANVISA registry */}
+        <div className="mt-10 flex items-center gap-3">
+          <img
+            src="https://aprendizagem.anvisa.gov.br/theme/mb2nl/assets/img/logo-anvisa-branco.png"
+            alt="Anvisa"
+            className="h-6 w-auto"
+            loading="lazy"
+          />
+          <span className="text-white/90 text-sm">
+            Registro ANVISA nº 83011080001 - LABPACS-LAUDOREMOTO
+          </span>
+        </div>
+
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-6 text-sm text-white md:flex-row md:items-center">
           <div className="flex items-center gap-4">
-            <a aria-label="LinkedIn" href="#" className="rounded-full p-3 md:p-2 text-white hover:text-white">
-              <IconLinkedIn className="h-5 w-5" />
-            </a>
-            <a aria-label="Instagram" href="#" className="rounded-full p-3 md:p-2 text-white hover:text-white">
+            <a aria-label="Instagram" href="https://www.instagram.com/labpacs/" target="_blank" rel="noopener noreferrer" className="rounded-full p-3 md:p-2 text-white hover:text-white">
               <IconInstagram className="h-5 w-5" />
             </a>
-            <a aria-label="YouTube" href="#" className="rounded-full p-3 md:p-2 text-white hover:text-white">
-              <IconYouTube className="h-5 w-5" />
-            </a>
-            <a aria-label="X" href="#" className="rounded-full p-3 md:p-2 text-white hover:text-white">
-              <IconX className="h-5 w-5" />
+            <a aria-label="Facebook" href="https://www.facebook.com/Labpacs" target="_blank" rel="noopener noreferrer" className="rounded-full p-3 md:p-2 text-white hover:text-white">
+              <IconFacebook className="h-5 w-5" />
             </a>
           </div>
 
