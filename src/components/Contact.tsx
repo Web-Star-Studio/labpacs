@@ -59,8 +59,8 @@ export default function Contact() {
                   <IconPhone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Telefone</h3>
-                  <p className="text-gray-600">+55 (85) 3456-7890</p>
+                  <h3 className="font-semibold text-gray-900">Telefone e WhatsApp</h3>
+                  <p className="text-gray-600">+55 (85) 98889-8568</p>
                 </div>
               </div>
 

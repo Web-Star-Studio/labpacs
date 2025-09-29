@@ -95,12 +95,6 @@ export default function CTA() {
               >
                 Fale com um especialista
               </a>
-              <a
-                href="#produtos"
-                className="inline-flex items-center justify-center rounded-xl border border-primary/30 bg-white px-5 py-3 text-primary shadow-sm transition-colors hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/40"
-              >
-                Conheça nossos produtos
-              </a>
             </motion.div>
           </div>
 

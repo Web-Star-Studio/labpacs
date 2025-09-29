@@ -93,7 +93,7 @@ const ProductCard = ({ item, idx, hoveredCard, setHoveredCard }: ProductCardProp
       }}
       onMouseMove={handleMouseMove}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={`relative group cursor-pointer h-full`}
+      className={`relative group h-full`}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-50 rounded-3xl group-hover:from-slate-200 transition-colors duration-300" />
       <motion.div
@@ -122,20 +122,15 @@ const ProductCard = ({ item, idx, hoveredCard, setHoveredCard }: ProductCardProp
           </div>
 
           <div className="flex-shrink-0 mt-6">
-            <div className="flex flex-wrap gap-2">
+            <ul className="space-y-1 text-sm text-slate-600 list-disc list-inside">
               {item.tags.map((tag: string, tagIdx: number) => (
-                <span
-                  key={tagIdx}
-                  className="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 text-slate-600 border border-slate-200"
-                >
-                  {tag}
-                </span>
+                <li key={tagIdx}>{tag}</li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
 
-        <div className="absolute top-6 right-6 text-slate-400 group-hover:text-primary transition-colors duration-300">
+        <div className="absolute top-6 right-6 text-slate-400 transition-colors duration-300">
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
           </svg>

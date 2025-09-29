@@ -33,7 +33,7 @@ export default function Partners() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section id="parceiros" className="py-16 bg-gray-50 pt-40">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-12">
           <h2 className="font-hero text-3xl sm:text-4xl text-gray-900 mb-4">

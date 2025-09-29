@@ -58,65 +58,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Link area */}
-        <div className="mt-10 grid gap-10 md:grid-cols-12">
-          {/* Brand */}
-          <div className="md:col-span-3">
-            <div className="inline-flex select-none items-baseline gap-1">
-              <span className="font-hero text-2xl tracking-tight">lab</span>
-              <span className="font-hero text-2xl tracking-tight text-primary">PACS</span>
-            </div>
-            <p className="mt-3 max-w-xs text-sm text-white">
-              Plataforma em nuvem para telerradiologia, laudos e gestão de imagens médicas.
-            </p>
-          </div>
-
-          {/* Columns */}
-          <nav className="md:col-span-9 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
-            <div>
-              <h4 className="text-sm font-semibold text-white">Produtos</h4>
-              <ul className="mt-3 space-y-2 text-white/90">
-                <li><a className="hover:text-white" href="#produtos">Laudo Remoto</a></li>
-                <li><a className="hover:text-white" href="#produtos">PACS em Nuvem</a></li>
-                <li><a className="hover:text-white" href="#produtos">Visor Web</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-white">Soluções</h4>
-              <ul className="mt-3 space-y-2 text-white/90">
-                <li><a className="hover:text-white" href="#solucoes">Integração RIS/PACS</a></li>
-                <li><a className="hover:text-white" href="#solucoes">Teleradiologia</a></li>
-                <li><a className="hover:text-white" href="#solucoes">Hospitais e Clínicas</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-white">Empresa</h4>
-              <ul className="mt-3 space-y-2 text-white/90">
-                <li><a className="hover:text-white" href="#sobre">Sobre nós</a></li>
-                <li><a className="hover:text-white" href="#carreiras">Carreiras</a></li>
-                <li><a className="hover:text-white" href="#contato">Contato</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-white">Recursos</h4>
-              <ul className="mt-3 space-y-2 text-white/90">
-                <li><a className="hover:text-white" href="#recursos">Documentação</a></li>
-                <li><a className="hover:text-white" href="#parceiros">Parceiros</a></li>
-                <li><a className="hover:text-white" href="#news">Notícias</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
 
         {/* ANVISA registry */}
-        <div className="mt-10 flex items-center gap-3">
+        <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
           <img
             src="https://aprendizagem.anvisa.gov.br/theme/mb2nl/assets/img/logo-anvisa-branco.png"
             alt="Anvisa"
-            className="h-6 w-auto"
+            className="h-5 sm:h-6 w-auto"
             loading="lazy"
           />
-          <span className="text-white/90 text-sm">
+          <span className="text-white/90 text-sm leading-snug break-words">
             Registro ANVISA nº 83011080001 - LABPACS-LAUDOREMOTO
           </span>
         </div>

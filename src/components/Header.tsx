@@ -4,7 +4,7 @@ import ContactDialog from "./ContactDialog";
 
 const navLinks = [
   { href: "#Produtos", label: "Produtos" },
-  { href: "#Estatisticas", label: "Clientes" },
+  { href: "#parceiros", label: "Clientes" },
   { href: "#CTA", label: "Empresa" },
 ];
 
@@ -53,7 +53,7 @@ export default function Header() {
   return (
     <>
       <header className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${scrolled || open ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}>
-        <div className="container mx-auto flex h-24 items-center justify-between px-4 sm:px-6">
+        <div className="container mx-auto flex h-20 md:h-24 items-center justify-between px-4 sm:px-6">
           <a href="#" className="block">
             <img src="/logo.webp" alt="LABPACS" className="h-8 sm:h-9 lg:h-14 w-auto" />
           </a>
@@ -125,7 +125,7 @@ export default function Header() {
                           <a
                             href={link.href}
                             onClick={toggleMenu}
-                            className="group relative text-5xl md:text-7xl font-extrabold tracking-tighter inline-block"
+                            className="group relative text-4xl md:text-7xl font-extrabold tracking-tighter inline-block"
                           >
                             <span className="bg-gradient-to-r from-cyan-300 via-white to-cyan-300 bg-clip-text text-transparent">
                               {link.label}
@@ -145,7 +145,7 @@ export default function Header() {
                   <div>
                     <h3 className="text-sm uppercase tracking-widest text-slate-400 mb-4">Redes Sociais</h3>
                     <div className="flex gap-4">
-                      <a href="https://www.instagram.com/labpacs/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">Instagram @labpacs</a>
+                      <a href="https://www.instagram.com/labpacs/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">Instagram</a>
                       <a href="https://www.facebook.com/Labpacs" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">Facebook</a>
                     </div>
                   </div>
