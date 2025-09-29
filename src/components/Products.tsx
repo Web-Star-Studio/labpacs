@@ -252,7 +252,7 @@ export default function Products() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900">
-            Soluções de Ponta para Diagnóstico
+            Soluções de Ponta para Diagnóstico por Imagem
           </h2>
           <p className="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
             Tecnologia, segurança e inovação para sua clínica ou hospital.
